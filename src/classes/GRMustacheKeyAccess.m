@@ -44,14 +44,12 @@ BOOL GRMustacheKeyAccessDidCatchNSUndefinedKeyException;
 // =============================================================================
 #pragma mark - GRMustacheKeyAccess
 
-static IMP GRValueForKeyNSObjectIMP;
 static Class GROrderedSetClass;
 
 @implementation GRMustacheKeyAccess
 
 + (void)initialize
 {
-    GRValueForKeyNSObjectIMP = class_getMethodImplementation([NSObject class], @selector(valueForKey:));
     GROrderedSetClass = NSClassFromString(@"NSOrderedSet");
 }
 
@@ -76,8 +74,28 @@ static Class GROrderedSetClass;
         // of valueForKey:, because they return another collection: see issue #21
         // and "anchored key should not extract properties inside an array" test
         // in src/tests/Public/v4.0/GRMustacheSuites/compound_keys.json
+        //
+        // Instead, use NSObject's implementation for those objects, so that
+        // we can access the properties of those objects, such as `count`,
+        // `anyObject`, etc.
         if ([self objectIsFoundationCollectionWhoseImplementationOfValueForKeyReturnsAnotherCollection:object]) {
-            return GRValueForKeyNSObjectIMP(object, @selector(valueForKey:), key);
+
+            // Issue https://github.com/groue/GRMustache/issues/70 reveals that the
+            // direct use of NSObject's imp crashes on arm64:
+            //
+            //     IMP imp = class_getMethodImplementation([NSObject class], @selector(valueForKey:));
+            //     return imp(object, @selector(valueForKey:), key);    // crash on arm64
+            //
+            // So let's use objc_msgSendSuper instead.
+            struct objc_super objc_super = {
+                .receiver = object,
+#if !defined(__cplusplus)  &&  !__OBJC2__
+                .class = [NSObject class],
+#else
+                .super_class = [NSObject class],
+#endif
+            };
+            return objc_msgSendSuper(&objc_super, @selector(valueForKey:), key);
         } else {
             return [object valueForKey:key];
         }
