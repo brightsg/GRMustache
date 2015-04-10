@@ -110,6 +110,7 @@
     
     if (![object isKindOfClass:[NSDictionary class]] && [object respondsToSelector:@selector(countByEnumeratingWithState:objects:count:)]) {
         for (id _ in object) {
+            (void)_;
             return [NSNumber numberWithBool:NO];
         }
         return [NSNumber numberWithBool:YES];
@@ -137,6 +138,7 @@
     
     if (![object isKindOfClass:[NSDictionary class]] && [object respondsToSelector:@selector(countByEnumeratingWithState:objects:count:)]) {
         for (id _ in object) {
+            (void)_;
             return [NSNumber numberWithBool:NO];
         }
         return [NSNumber numberWithBool:YES];
