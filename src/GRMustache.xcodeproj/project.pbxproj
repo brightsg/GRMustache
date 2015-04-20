@@ -1480,7 +1480,7 @@
 			name = "GRMustache6-iOS-arm64-Tests";
 			productName = "GRMustache6-iOSTests";
 			productReference = 56A731681805276A00B8570A /* GRMustache6-iOS-arm64-Tests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		56DEC247152631040031E8DC /* GRMustache6-MacOS */ = {
 			isa = PBXNativeTarget;
@@ -1516,7 +1516,7 @@
 			name = "GRMustache6-MacOSTests";
 			productName = "GRMustache6-MacOSTests";
 			productReference = 56DEC255152631040031E8DC /* GRMustache6-MacOSTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		56DEC26D1526311B0031E8DC /* GRMustache6-iOS */ = {
 			isa = PBXNativeTarget;
@@ -1552,7 +1552,7 @@
 			name = "GRMustache6-iOSTests";
 			productName = "GRMustache6-iOSTests";
 			productReference = 56DEC27B1526311C0031E8DC /* GRMustache6-iOSTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1560,7 +1560,8 @@
 		56DEC19C15262FC80031E8DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastTestingUpgradeCheck = 0630;
+				LastUpgradeCheck = 0630;
 			};
 			buildConfigurationList = 56DEC19F15262FC80031E8DC /* Build configuration list for PBXProject "GRMustache" */;
 			compatibilityVersion = "Xcode 3.2";
