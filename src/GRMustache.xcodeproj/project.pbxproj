@@ -1560,8 +1560,8 @@
 		56DEC19C15262FC80031E8DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastTestingUpgradeCheck = 0630;
-				LastUpgradeCheck = 0630;
+				LastTestingUpgradeCheck = 0640;
+				LastUpgradeCheck = 0640;
 			};
 			buildConfigurationList = 56DEC19F15262FC80031E8DC /* Build configuration list for PBXProject "GRMustache" */;
 			compatibilityVersion = "Xcode 3.2";
