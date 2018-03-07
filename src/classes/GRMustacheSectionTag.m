@@ -55,7 +55,7 @@
         // With a nil context, the method would return nil without setting the
         // error argument.
         [NSException raise:NSInvalidArgumentException format:@"Invalid context:nil"];
-        return NO;
+        return nil;
     }
     
     NSMutableString *buffer = [NSMutableString string];
