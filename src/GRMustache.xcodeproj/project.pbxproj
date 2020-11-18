@@ -691,6 +691,7 @@
 		56FE26B216B8095400FECF56 /* GRMustacheLocalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GRMustacheLocalizer.m; sourceTree = "<group>"; };
 		ABAF86A816A0A852001ADE96 /* GRMustache6Tests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GRMustache6Tests-Info.plist"; sourceTree = "<group>"; };
 		ABAF86AA16A0A863001ADE96 /* GRMustache6Tests-GC-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GRMustache6Tests-GC-Info.plist"; sourceTree = "<group>"; };
+		ABAFB410256423EB00C71077 /* macOS-native-arch.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "macOS-native-arch.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1048,6 +1049,7 @@
 		56DEC19A15262FC80031E8DC = {
 			isa = PBXGroup;
 			children = (
+				ABAFB410256423EB00C71077 /* macOS-native-arch.xcconfig */,
 				5662BA3E15A05268001FD2CA /* AppledocSettings.plist */,
 				56A731B818123F1900B8570A /* Makefile */,
 				56E2F2E616BA49A500F01DC2 /* TODO.md */,
@@ -1568,6 +1570,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 56DEC19A15262FC80031E8DC;
@@ -2214,6 +2217,7 @@
 		};
 		56DEC266152631040031E8DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABAFB410256423EB00C71077 /* macOS-native-arch.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
